@@ -8,6 +8,7 @@ app.engine('.hbs', hbs());
 app.set('view engine', '.hbs');
 
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -20,6 +21,10 @@ app.get('/about', (req, res) => {
 app.get('/contact', (req, res) => {
   res.render('contact', {layout: 'dark'});
 });
+
+app.post('/contact/send-message', (req, res) => {
+  res.json(req.body);
+  });  
 
 app.get('/info', (req, res) => {
   res.render('info', {layout: 'dark'});
