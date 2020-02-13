@@ -1,5 +1,5 @@
 <h2>Contact me</h2>
-<form action="/contact/send-message" method="POST">
+<form action="/contact/send-message" method="POST" >
   <label>
     Your name: <input type="text" name="author">
   </label>
@@ -10,13 +10,16 @@
     Title: <input type="text" name="title">
   </label>
   <label>
+    Project design: <input type="file" name="image" accept=".png, .jpg, .jpeg, .gif">
+  </label>
+  <label>
     Message: <textarea name="message"></textarea>
   </label>
   <button type="submit">Send message</button>
 </form>
 
 {{#if isSent}}
-<div> The message has been sent!</div>
+<div> The message has been sent! File {{image}} has been saved</div>
 {{/if}}
 
 {{#if isError}}
