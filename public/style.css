@@ -3,3 +3,12 @@ h1 {
     font-style: italic;
   }
   
+  .dark {
+    background-color: black;
+    color: blanchedalmond;
+    
+  }
+
+  .dark h1 {
+    display: none;
+  }
