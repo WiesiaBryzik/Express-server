@@ -15,32 +15,39 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.render('about', {layout: 'dark'});
+  res.render('about', { layout: 'dark' });
 });
 
 app.get('/contact', (req, res) => {
-  res.render('contact', {layout: 'dark'});
+  res.render('contact', { layout: 'dark' });
 });
 
 app.post('/contact/send-message', (req, res) => {
-  res.json(req.body);
-  });  
+  const { author, sender, title, message } = req.body;
+  if (author && sender && title && message) {
+    res.send('The message has been sent!');
+  }
+  else {
+    res.send('You can\'t leave fields empty!')
+  }
+});
+
 
 app.get('/info', (req, res) => {
-  res.render('info', {layout: 'dark'});
+  res.render('info', { layout: 'dark' });
 });
 
 app.get('/history', (req, res) => {
-  res.render('history', {layout: 'dark'});
+  res.render('history', { layout: 'dark' });
 });
 
 app.get('/hello/:name', (req, res) => {
   res.render('hello', { layout: 'dark', name: req.params.name });
-  });
+});
 
 app.use((req, res) => {
-    res.status(404).send('404 not found...');
-  })  
+  res.status(404).send('404 not found...');
+})
 
 app.listen(8000, () => {
   console.log('Server is running on port: 8000');
