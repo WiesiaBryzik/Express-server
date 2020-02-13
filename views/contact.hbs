@@ -14,3 +14,11 @@
   </label>
   <button type="submit">Send message</button>
 </form>
+
+{{#if isSent}}
+<div> The message has been sent!</div>
+{{/if}}
+
+{{#if isError}}
+<div> You can't leave fields empty!</div>
+{{/if}}
